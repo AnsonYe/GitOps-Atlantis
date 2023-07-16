@@ -38,3 +38,35 @@ Finally, expose your Atlantis instance with `ngrok`:
 ```
 
 Your Atlantis server is now accessible over the internet and ready to receive webhooks from GitHub.
+
+# Atlantis with Ngrok Docker Setup
+
+This project provides a local setup of Atlantis with Ngrok using Docker and Docker Compose. Ngrok provides a public URL to access the Atlantis server running locally. This is useful for development and testing scenarios.
+
+## Environment Variables
+
+First, you need to create a `.env.local` file to configure Atlantis and Ngrok. The content of the `.env.local` file should look like this:
+
+```shell
+ATLANTIS_GH_WEBHOOK_SECRET=<Your Github Webhook Secret>
+ATLANTIS_GH_TOKEN=<Your Github Token>
+ATLANTIS_ATLANTIS_URL=<Your-Random-Domain.ngrok-free.app>
+ATLANTIS_GH_USER=<Your Github User>
+ATLANTIS_REPO_ALLOWLIST=<Your Repo Allowlist>
+ATLANTIS_REPO_CONFIG=<Your Repo Config>
+AWS_ACCESS_KEY_ID=<Your AWS Access Key ID>
+AWS_SECRET_ACCESS_KEY=<Your AWS Secret Access Key>
+NGROK_AUTHTOKEN=<Your Ngrok Auth Token>
+NGROK_DOMAIN=<Your-Random-Domain.ngrok-free.app>
+```
+Please replace <Your ...> with your actual information.
+
+## Running the Containers
+After setting up the environment variables, you can run the Docker containers using the following command:
+```
+docker compose --env-file ./.env.local up
+```
+To stop and remove the containers, you can use:
+```
+docker compose --env-file ./.env.local down
+```
