@@ -38,3 +38,4 @@ atlantis.var
 ngrok
 atlantis*
 !atlantis.yaml
+.env.local
