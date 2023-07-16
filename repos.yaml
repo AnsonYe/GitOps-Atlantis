@@ -21,3 +21,19 @@ workflows:
             name: TF_WORKSPACE
             command: echo $WORKSPACE
         - apply
+
+  terragrunt:
+    plan:
+      steps:
+      - env:
+          name: TF_WORKSPACE
+          command: echo $WORKSPACE
+      - run: "sh -c 'echo RUN PATH: ${PLANFILE}'"
+      - run: terragrunt plan -input=false -no-color
+
+    apply:
+      steps:
+      - env:
+          name: TF_WORKSPACE
+          command: echo $WORKSPACE
+      - run: terragrunt apply -input=false -no-color
