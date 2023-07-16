@@ -1,0 +1,6 @@
+SECRET=Github_Webhook_Secret
+TOKEN=Github_Token
+URL=Ngrok_Forwarding_URL
+USERNAME=Github-Username
+REPO_ALLOWLIST="github.com/Github_Username/*"
+REPO_CONFIG="./repos.yaml"

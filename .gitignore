@@ -32,3 +32,9 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+atlantis.var
+*.zip
+ngrok
+atlantis*
+!atlantis.yaml
